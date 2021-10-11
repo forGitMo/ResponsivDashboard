@@ -1,138 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:responsivapp/widgets/huge_window_view.dart';
-import 'package:responsivapp/widgets/phone_view_widget.dart';
-import 'package:responsivapp/widgets/tablet_view_widget.dart';
 
-class ResposivWidget extends StatelessWidget {
-  ResposivWidget({Key? key}) : super(key: key);
+class HugeWindow extends StatelessWidget {
+  const HugeWindow({Key? key}) : super(key: key);
 
-  var backgroundUrl =
-      'https://wallpaperbat.com/img/437628-edinburgh-wallpaper-top-free-edinburgh-background.jpg';
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Theme(
-        data: Theme.of(context).copyWith(canvasColor: Colors.transparent),
-        child: Drawer(
-          elevation: 5,
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            child: ListView(
-              // Important: Remove any padding from the ListView.
-              padding: EdgeInsets.zero,
-              children: [
-                const DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.black26,
-                    image: DecorationImage(
-                      image: NetworkImage(""),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Text(
-                    'Drawer Header',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                Container(
-                  color: Colors.transparent,
-                  child: Column(
-                    children: [
-                      ListTile(
-                        leading: Icon(
-                          Icons.people,
-                          color: Colors.white,
-                        ),
-                        hoverColor: Colors.purple,
-                        title: const Text(
-                          'people',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onTap: () {
-                          // Update the state of the app.
-                          // ...
-                          Navigator.pop(context);
-                        },
-                      ),
-                      ListTile(
-                        leading: Icon(
-                          Icons.logout,
-                          color: Colors.white,
-                        ),
-                        hoverColor: Colors.purple,
-                        title: const Text(
-                          'logOut',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        onTap: () {
-                          // Update the state of the app.
-                          // ...
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-      appBar: AppBar(
-          backgroundColor: Colors.black54,
-          elevation: 2,
-          titleSpacing: 20,
-          title: Text(
-            'ResposivWidget',
-          )),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Colors.blue,
-              Colors.red,
-            ],
-          ),
-        ),
-        child: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constrains) {
-            if (constrains.maxWidth > 2200) {
-              return HugeWindow();
-            }
-            if (constrains.maxWidth > 1300 /*1300*/) {
-              return _fullsizedWidget();
-            }
-            if (constrains.maxWidth > 800) {
-              return TabletView();
-            } else {
-              return PhoneView();
-            }
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class _fullsizedWidget extends StatefulWidget {
-  _fullsizedWidget();
-
-  @override
-  _nameState createState() => _nameState();
-}
-
-var numm = 100;
-var data300 =
-    'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer';
-var data100 =
-    'Lorem ipsum blar r blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte r blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aLorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna a blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, imperdiet doming id quod mazim placerat facer';
-
-class _nameState extends State<_fullsizedWidget> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -143,8 +13,9 @@ class _nameState extends State<_fullsizedWidget> {
             direction: axisDirectionToAxis(flipAxisDirection(AxisDirection.up)),
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(30.0),
                 child: SizedBox(
+                  height: 100,
                   child: Text(
                     'Resposive Dashboard',
                     style: TextStyle(fontSize: 50),
@@ -160,11 +31,11 @@ class _nameState extends State<_fullsizedWidget> {
                           color: Colors.black12,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 300,
+                            child: Expanded(
                               child: Column(
                                 children: [
                                   Container(
+                                    height: 300,
                                     width: double.infinity,
                                     child: Padding(
                                       padding: const EdgeInsets.only(
@@ -192,7 +63,7 @@ class _nameState extends State<_fullsizedWidget> {
                                           child: SingleChildScrollView(
                                             child: Column(
                                               children: [
-                                                Text(data100),
+                                                Text('data100'),
                                               ],
                                             ),
                                           ),
@@ -222,11 +93,11 @@ class _nameState extends State<_fullsizedWidget> {
                       Flexible(
                         child: Card(
                           color: Colors.black12,
-                          child: SizedBox(
+                          child: Container(
+                            height: 575,
                             child: const Padding(
                               padding: EdgeInsets.all(10.0),
                               child: Placeholder(
-                                fallbackHeight: 300,
                                 strokeWidth: 10,
                                 color: Colors.black12,
                               ),
@@ -786,7 +657,7 @@ class _nameState extends State<_fullsizedWidget> {
                                                   Container(
                                                     padding: EdgeInsets.all(5),
                                                     width: 380,
-                                                    child: Text(data100),
+                                                    child: Text('data100'),
                                                   ),
                                                 ],
                                               ),
