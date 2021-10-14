@@ -5,6 +5,11 @@ class HugeWindow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var data300 =
+        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer';
+    var data100 =
+        'Lorem ipsum blar r blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte r blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aLorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna a blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, imperdiet doming id quod mazim placerat facer';
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -63,7 +68,7 @@ class HugeWindow extends StatelessWidget {
                                           child: SingleChildScrollView(
                                             child: Column(
                                               children: [
-                                                Text('data100'),
+                                                Text(data100),
                                               ],
                                             ),
                                           ),
@@ -657,7 +662,7 @@ class HugeWindow extends StatelessWidget {
                                                   Container(
                                                     padding: EdgeInsets.all(5),
                                                     width: 380,
-                                                    child: Text('data100'),
+                                                    child: Text(data100),
                                                   ),
                                                 ],
                                               ),

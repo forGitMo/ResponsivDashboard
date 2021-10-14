@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:responsivapp/widgets/about_screen.dart';
+import 'package:responsivapp/widgets/impressum_screen.dart';
 import 'package:responsivapp/widgets/responsiv_widget.dart';
 
 void main() {
@@ -13,6 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        '/responsivwidget': (context) => ResposivWidget(),
+        '/aboutscreen': (context) => const AboutScreen(),
+        '/impressum': (context) => Impressum(),
+      },
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,

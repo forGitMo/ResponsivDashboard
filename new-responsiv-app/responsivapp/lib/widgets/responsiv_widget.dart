@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:responsivapp/widgets/about_screen.dart';
 import 'package:responsivapp/widgets/huge_window_view.dart';
 import 'package:responsivapp/widgets/phone_view_widget.dart';
 import 'package:responsivapp/widgets/tablet_view_widget.dart';
@@ -46,29 +47,48 @@ class ResposivWidget extends StatelessWidget {
                         ),
                         hoverColor: Colors.purple,
                         title: const Text(
-                          'people',
+                          'About',
                           style: TextStyle(color: Colors.white),
                         ),
                         onTap: () {
                           // Update the state of the app.
                           // ...
-                          Navigator.pop(context);
+                          Navigator.pushNamed(context, '/aboutscreen');
                         },
                       ),
                       ListTile(
                         leading: Icon(
-                          Icons.logout,
+                          Icons.dashboard,
                           color: Colors.white,
                         ),
                         hoverColor: Colors.purple,
                         title: const Text(
-                          'logOut',
+                          'Dashboard',
                           style: TextStyle(color: Colors.white),
                         ),
                         onTap: () {
                           // Update the state of the app.
                           // ...
-                          Navigator.pop(context);
+                          Navigator.pushNamed(context, '/responsivwidget');
+                        },
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      ListTile(
+                        leading: Icon(
+                          Icons.house,
+                          color: Colors.white,
+                        ),
+                        hoverColor: Colors.purple,
+                        title: const Text(
+                          'Impressum',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        onTap: () {
+                          // Update the state of the app.
+                          // ...
+                          Navigator.pushNamed(context, '/impressum');
                         },
                       ),
                     ],
@@ -80,8 +100,8 @@ class ResposivWidget extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-          backgroundColor: Colors.black54,
-          elevation: 2,
+          backgroundColor: Colors.blueGrey,
+          elevation: 0,
           titleSpacing: 20,
           title: Text(
             'ResposivWidget',
@@ -744,7 +764,27 @@ class _nameState extends State<_fullsizedWidget> {
                                     color: Colors.black12,
                                     child: Container(
                                       height: 100,
-                                      child: Text('data'),
+                                      child: Container(
+                                        constraints: BoxConstraints.expand(
+                                          height: Theme.of(context)
+                                                      .textTheme
+                                                      .headline4!
+                                                      .fontSize! *
+                                                  1.1 +
+                                              200.0,
+                                        ),
+                                        padding: const EdgeInsets.all(8.0),
+                                        color: Colors.purple[300],
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          'Coming Soon',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headline4!
+                                              .copyWith(color: Colors.white),
+                                        ),
+                                        transform: Matrix4.rotationZ(0.04),
+                                      ),
                                     ),
                                   ),
                                 ),
