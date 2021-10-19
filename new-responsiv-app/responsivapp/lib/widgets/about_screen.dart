@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:responsivapp/widgets/responsiv_widget.dart';
 
@@ -16,6 +18,7 @@ class _AboutScreenState extends State<AboutScreen> {
   double _frontsize = 20;
   double _padding = 5;
   double _Boxheight = 5;
+  double _size = 12;
   var _color = Colors.black54;
 
   double? updateState() {
@@ -27,6 +30,7 @@ class _AboutScreenState extends State<AboutScreen> {
         _imageWidth = 400;
         _padding = 22;
         _Boxheight = 20;
+        _size = 20;
         Future.delayed(const Duration(milliseconds: 10), () {
           // Here you can write your code
           setState(() {
@@ -41,7 +45,8 @@ class _AboutScreenState extends State<AboutScreen> {
         _imageWidth = 200;
         _padding = 10;
         _Boxheight = 5;
-        _frontsize = 19;
+        _frontsize = 18;
+        _size = 12;
       }
     });
   }
@@ -140,7 +145,7 @@ class _AboutScreenState extends State<AboutScreen> {
           elevation: 0,
           titleSpacing: 20,
           title: Text(
-            'ResposivWidget',
+            'ResponsivWidget',
           )),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -197,164 +202,152 @@ class _AboutScreenState extends State<AboutScreen> {
                                 padding: const EdgeInsets.all(22),
                                 child: Column(
                                   children: [
-                                    Column(
-                                      children: [
-                                        Container(
-                                          child: Text(
-                                            'Moritz Amelang',
-                                            style: TextStyle(
-                                              fontSize: _frontsize,
-                                              color: Colors.white,
-                                            ),
+                                    Column(children: [
+                                      Container(
+                                        child: Text(
+                                          'Moritz Amelang',
+                                          style: TextStyle(
+                                            fontSize: _frontsize,
+                                            color: Colors.white,
                                           ),
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Container(
-                                            child: Image.network(
-                                              'https://pps.whatsapp.net/v/t61.24694-24/244599838_1470778166625832_2794651436667116432_n.jpg?ccb=11-4&oh=9bdc242d22a0af0b5d7ab73fca7e72f0&oe=616A7873',
-                                              height: _imageHeight,
-                                              width: _imageWidth,
-                                            ),
-                                          ),
-                                        ),
-                                        Center(
-                                          child: Container(
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(0.0),
-                                              child: Column(
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Container(
+                                            child: Placeholder(
+                                          fallbackHeight: _imageHeight,
+                                          fallbackWidth: _imageWidth,
+                                        )),
+                                      ),
+                                    ]),
+                                    Center(
+                                      child: Container(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(0.0),
+                                          child: Column(
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceAround,
+                                                mainAxisSize: MainAxisSize.min,
                                                 children: [
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      InkWell(
-                                                        onTap: () {
-                                                          print('call');
-                                                        },
-                                                        child: Row(
-                                                          children: [
-                                                            Icon(
-                                                              Icons.phone,
-                                                              color:
-                                                                  Colors.white,
-                                                              size: 20,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(2.0),
-                                                              child: Text(
-                                                                'call me',
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        _frontsize -
-                                                                            5),
-                                                              ),
-                                                            ),
-                                                          ],
+                                                  InkWell(
+                                                    onTap: () {
+                                                      print('call');
+                                                    },
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.phone,
+                                                          color: Colors.white,
+                                                          size: 20,
                                                         ),
-                                                      ),
-                                                      SizedBox(
-                                                        width: 20,
-                                                      ),
-                                                      InkWell(
-                                                        onTap: () {
-                                                          print('write');
-                                                        },
-                                                        child: Row(
-                                                          children: [
-                                                            Icon(
-                                                              Icons.email,
-                                                              color:
-                                                                  Colors.white,
-                                                              size: 20,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(2.0),
-                                                              child: Text(
-                                                                'write me',
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        _frontsize -
-                                                                            5),
-                                                              ),
-                                                            ),
-                                                          ],
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(2.0),
+                                                          child: Text(
+                                                            'call me',
+                                                            style: TextStyle(
+                                                                fontSize:
+                                                                    _size),
+                                                          ),
                                                         ),
-                                                      ),
-                                                      InkWell(
-                                                        onTap: () {
-                                                          print('follow');
-                                                        },
-                                                        child: Row(
-                                                          children: [
-                                                            Icon(
-                                                              Icons
-                                                                  .g_mobiledata_outlined,
-                                                              color:
-                                                                  Colors.white,
-                                                              size: 20,
-                                                            ),
-                                                            Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                      .all(2.0),
-                                                              child: Text(
-                                                                'follow me',
-                                                                style: TextStyle(
-                                                                    fontSize:
-                                                                        _frontsize -
-                                                                            5),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
+                                                      ],
+                                                    ),
                                                   ),
                                                   SizedBox(
-                                                    height: _Boxheight,
+                                                    width: 20,
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            2.0),
-                                                    child: Container(
-                                                      child: Text(
-                                                        'App/Web Developer',
-                                                        style: TextStyle(
-                                                            fontSize:
-                                                                _frontsize - 5),
-                                                      ),
+                                                  InkWell(
+                                                    onTap: () {
+                                                      print('write');
+                                                    },
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.email,
+                                                          color: Colors.white,
+                                                          size: 20,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(2.0),
+                                                          child: Text(
+                                                            'write me',
+                                                            style: TextStyle(
+                                                                fontSize:
+                                                                    _size),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding: EdgeInsets.all(
-                                                        _padding),
-                                                    child: Container(
-                                                      child: Text(
-                                                        'I am a german developer based in Krefeld. At the moment Iam doing an internship in a company that specializes in logistical apps called AppLogik GmbH.',
-                                                        style: TextStyle(
-                                                            fontSize:
-                                                                _frontsize - 9,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w300),
-                                                      ),
+                                                  InkWell(
+                                                    onTap: () {
+                                                      print('follow');
+                                                    },
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons
+                                                              .g_mobiledata_outlined,
+                                                          color: Colors.white,
+                                                          size: 20,
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .all(2.0),
+                                                          child: Text(
+                                                            'follow me',
+                                                            style: TextStyle(
+                                                                fontSize:
+                                                                    _size),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
-                                                  )
+                                                  ),
                                                 ],
                                               ),
-                                            ),
+                                              SizedBox(
+                                                height: _Boxheight,
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.all(2.0),
+                                                child: Container(
+                                                  child: Text(
+                                                    'App/Web Developer',
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                            _frontsize - 5),
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding:
+                                                    EdgeInsets.all(_padding),
+                                                child: Container(
+                                                  child: Text(
+                                                    'I am a german developer based in Krefeld. At the moment Iam doing an internship in a company that specializes in logistical apps called AppLogik GmbH.',
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                            _frontsize - 9,
+                                                        fontWeight:
+                                                            FontWeight.w300),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
                                           ),
-                                        )
-                                      ],
-                                    ),
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),

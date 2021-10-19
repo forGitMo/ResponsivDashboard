@@ -104,7 +104,7 @@ class ResposivWidget extends StatelessWidget {
           elevation: 0,
           titleSpacing: 20,
           title: Text(
-            'ResposivWidget',
+            'ResponsivWidget',
           )),
       body: Container(
         height: MediaQuery.of(context).size.height,
