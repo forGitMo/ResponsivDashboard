@@ -1,9 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsivapp/widgets/about_screen.dart';
+import 'package:responsivapp/widgets/chartbar.dart';
+import 'package:responsivapp/widgets/chartcircul.dart';
 import 'package:responsivapp/widgets/huge_window_view.dart';
+import 'package:responsivapp/widgets/linechart.dart';
 import 'package:responsivapp/widgets/phone_view_widget.dart';
 import 'package:responsivapp/widgets/tablet_view_widget.dart';
+
+import 'package:charts_flutter/flutter.dart' as charts;
+import 'chart.dart';
 
 class ResposivWidget extends StatelessWidget {
   ResposivWidget({Key? key}) : super(key: key);
@@ -151,6 +157,33 @@ var data300 =
     'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer';
 var data100 =
     'Lorem ipsum blar r blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte r blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna ar blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aLorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna a blarb laorb xendedy elopri elmerte Lorem ipsum dolor sit amet,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, imperdiet doming id quod mazim placerat facer';
+final List<DeveloperSeries> data = [
+  DeveloperSeries(
+    year: 2017,
+    developers: 400,
+    barColor: charts.ColorUtil.fromDartColor(Colors.blueAccent),
+  ),
+  DeveloperSeries(
+    year: 2018,
+    developers: 50,
+    barColor: charts.ColorUtil.fromDartColor(Colors.greenAccent),
+  ),
+  DeveloperSeries(
+    year: 2019,
+    developers: 400,
+    barColor: charts.ColorUtil.fromDartColor(Colors.blue),
+  ),
+  DeveloperSeries(
+    year: 2020,
+    developers: 350,
+    barColor: charts.ColorUtil.fromDartColor(Colors.purple),
+  ),
+  DeveloperSeries(
+    year: 2021,
+    developers: 450,
+    barColor: charts.ColorUtil.fromDartColor(Colors.pink),
+  ),
+];
 
 class _nameState extends State<_fullsizedWidget> {
   @override
@@ -243,12 +276,24 @@ class _nameState extends State<_fullsizedWidget> {
                         child: Card(
                           color: Colors.black12,
                           child: SizedBox(
-                            child: const Padding(
+                            child: Padding(
                               padding: EdgeInsets.all(10.0),
-                              child: Placeholder(
-                                fallbackHeight: 300,
-                                strokeWidth: 10,
-                                color: Colors.black12,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Container(
+                                        child: Text(data100),
+                                        width: 400,
+                                      ),
+                                      Expanded(
+                                        child: CirculChart(
+                                          data: data,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ),
@@ -270,438 +315,21 @@ class _nameState extends State<_fullsizedWidget> {
                                       children: [
                                         Padding(
                                           padding: const EdgeInsets.all(10.0),
-                                          child: FittedBox(
-                                            child: Text(
-                                              'look at this Diagram',
-                                              textAlign: TextAlign.left,
-                                            ),
-                                          ),
+                                          child: FittedBox(),
                                         ),
                                         Container(
                                           width: double.infinity,
-                                          padding: EdgeInsets.all(10),
-                                          height: 92,
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                          padding: EdgeInsets.all(1),
+                                          child: Column(
                                             children: [
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            2.0),
-                                                    child: Container(
-                                                      height: 60,
-                                                      width: 10,
-                                                      color: Colors.blue,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 20,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 40,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 45,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 70,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 55,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 80,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 30,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 40,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 76,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 70,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 60,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 60,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 70,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 55,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 80,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 55,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 80,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 20,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 40,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 45,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 70,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 55,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 20,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 40,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 45,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 70,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 55,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(2.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  width: 10,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
+                                              DeveloperChart(
+                                                data: data,
+                                              )
                                             ],
                                           ),
                                         ),
                                       ],
                                     ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Flexible(
-                                  child: Card(
-                                    color: Colors.black12,
-                                    child: Container(
-                                        height: 95,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(4.0),
-                                                child: Container(
-                                                  child: Text(
-                                                    'look at this Diagram',
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(4.0),
-                                                child: Container(
-                                                  height: 10,
-                                                  color: Colors.red,
-                                                  margin: EdgeInsets.only(
-                                                      right: 220),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(4.0),
-                                                child: Container(
-                                                  margin: EdgeInsets.only(
-                                                      right: 180),
-                                                  height: 10,
-                                                  color: Colors.orange,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.all(4.0),
-                                                child: Container(
-                                                  margin: EdgeInsets.only(
-                                                      right: 120),
-                                                  height: 10,
-                                                  color: Colors.green,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        )),
                                   ),
                                 ),
                               ],
@@ -806,37 +434,14 @@ class _nameState extends State<_fullsizedWidget> {
                               children: [
                                 SingleChildScrollView(
                                   child: Container(
-                                    height: 340,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(5.0),
-                                            child: Placeholder(
-                                              fallbackWidth: 200,
-                                              color: Colors.black26,
-                                              strokeWidth: 5,
-                                            ),
-                                          ),
-                                          Column(
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Container(
-                                                    padding: EdgeInsets.all(5),
-                                                    width: 380,
-                                                    child: Text(data100),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                    height: 430,
+                                    child: Container(
+                                      child: LineChart(
+                                        data: data,
                                       ),
                                     ),
                                   ),
-                                ),
+                                )
                               ],
                             ),
                           ),
