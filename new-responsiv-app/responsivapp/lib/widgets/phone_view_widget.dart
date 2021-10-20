@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:responsivapp/widgets/chart.dart';
 import 'package:responsivapp/widgets/chartbar.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:responsivapp/widgets/linechart.dart';
 import 'chartcircul.dart';
 import 'package:responsivapp/widgets/chartcircul.dart';
 import 'chart.dart';
@@ -131,7 +132,7 @@ class PhoneView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Container(
-                        padding: EdgeInsets.all(10),
+                        padding: EdgeInsets.all(8),
                         child: Column(
                           children: [
                             DeveloperChart(
@@ -186,25 +187,13 @@ class PhoneView extends StatelessWidget {
                           height: 340,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Row(
+                            child: Column(
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Placeholder(
-                                    fallbackWidth: 200,
-                                    color: Colors.black26,
-                                    strokeWidth: 5,
-                                  ),
-                                ),
-                                Column(
-                                  children: [
-                                    Expanded(
-                                        child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Text('data100'),
-                                    )),
-                                  ],
-                                ),
+                                Expanded(
+                                    child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: LineChart(data: data),
+                                )),
                               ],
                             ),
                           ),
